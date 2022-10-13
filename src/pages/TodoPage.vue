@@ -124,7 +124,7 @@ export default ({
       this.newTask=""
     },
     editTask(){
-    console.log('Edit');
+    console.log('Clicked');
     }
   }
   
