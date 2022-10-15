@@ -37,7 +37,7 @@
         </q-item-section>
         <q-item-section side>
           <q-btn
-            @click.stop="editTask()"
+            @click.stop="editTask(data)"
             dense
             flat
             round
@@ -120,8 +120,22 @@ export default {
       });
       this.newTask = "";
     },
-    editTask() {
+    editTask(data) {
       console.log("Clicked");
+      this.$q
+        .dialog({
+          title: "Edit task",
+          message: "",
+          prompt: {
+            model: "",
+            type: "text", // optional
+          },
+          cancel: true,
+          persistent: true,
+        })
+        .onOk((data) => {
+          console.log(data);
+        });
     },
   },
 };
