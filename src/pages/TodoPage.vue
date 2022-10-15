@@ -22,7 +22,7 @@
         v-for="(task, index) in tasks"
         :key="task.title"
         @click="task.done = !task.done"
-        :class="{ 'done bg-yellow-2': task.done }"
+        :class="{ 'done bg-red-1': task.done }"
         v-ripple
       >
         <q-item-section avatar>
@@ -70,8 +70,11 @@
 </template>
 
 <script>
+import { useQuasar } from "quasar";
 export default {
   data() {
+    const $q = useQuasar();
+    $q.addressbarColor.set("#1976D2");
     return {
       newTask: "",
       tasks: [
@@ -128,7 +131,7 @@ export default {
 .done {
   .q-item__label {
     text-decoration: line-through;
-    color: #b1b1b1;
+    color: $negative;
   }
 }
 
