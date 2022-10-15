@@ -74,6 +74,7 @@
 <script>
 import { date } from "quasar";
 import { defineComponent, ref } from "vue";
+import { useQuasar } from "quasar";
 
 export default defineComponent({
   name: "MainLayout",
@@ -84,6 +85,8 @@ export default defineComponent({
 
   setup() {
     const leftDrawerOpen = ref(false);
+    const $q = useQuasar();
+    $q.addressbarColor.set("#1976D2");
 
     return {
       leftDrawerOpen,
